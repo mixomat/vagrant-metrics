@@ -1,0 +1,10 @@
+name             'metrics'
+maintainer       'Marc Weinberger'
+maintainer_email 'marcopotento@gmail.com'
+license          'All rights reserved'
+description      'Installs/Configures various metric service'
+long_description 'Installs/Configures various metric service'
+version          '0.1.0'
+ 
+depends 'graphite'
+depends 'statsd'
