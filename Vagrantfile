@@ -15,10 +15,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.network :forwarded_port, guest: 8126, host: 8126
 	config.vm.network :forwarded_port, guest: 2003, host: 2003
 	config.vm.network :forwarded_port, guest: 2004, host: 2004
+	config.vm.network :forwarded_port, guest: 80, host: 9090
 
 	config.vm.provision :chef_solo do |chef|
-		#chef.add_recipe "graphite::carbon"
+		chef.add_recipe "graphite::carbon"
 		chef.add_recipe "statsd"
+		chef.add_recipe "apache2"
 		chef.add_recipe "metrics"
 		chef.json =  {statsd: {
 				nodejs_bin: "/usr/bin/node"
